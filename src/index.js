@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 
-app.get('/wishme', (req, res) => {
+app.get('/hello', (req, res) => {
     res.send('First version of back end');
 });
 
