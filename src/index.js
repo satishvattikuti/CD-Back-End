@@ -1,11 +1,19 @@
 const express = require('express');
+const gittags = require('git-tags');
 
-const app = express();
+const server = express();
 
-
-app.get('/hello', (req, res) => {
-    res.send('First version of back end');
+server.get('/', function(req, res) {
+    gittags.latest(function(err, version) {
+        if (err) {
+            res.status(500).json({ version: 'Error' });
+        } else {
+            res.status(200).json({ version });
+        }
+    });
 });
 
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+server.listen(3000, function() {
+    console.log('Running on http://localhost:3000');
+});
