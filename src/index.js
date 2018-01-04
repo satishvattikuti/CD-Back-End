@@ -14,7 +14,7 @@ server.get('/version', function(req, res) {
 });
 
 server.get('/hello', function(req, res) {
-    res.send("Your server Says hello");
+    res.send("Hello World");
 });
 
 server.listen(3000, function() {
