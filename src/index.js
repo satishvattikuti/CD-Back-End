@@ -3,6 +3,10 @@ const gittags = require('git-tags');
 
 const server = express();
 
+server.get('/', function(req, res) {
+    res.send(" Welcome to Your Server");
+});
+
 server.get('/version', function(req, res) {
     gittags.latest(function(err, version) {
         if (err) {
